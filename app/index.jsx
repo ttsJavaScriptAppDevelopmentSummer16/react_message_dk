@@ -33,9 +33,7 @@ class MessageInput extends React.Component {
   render() {
 
     const messageMap = this.state.messages.map(function(user, i) {
-      for ( i = 0; i < this.state.length; i++) {
         return (<li key={i}>At {user.time}, {user.user} said "{user.text}"</li>)
-      }
     })
 
     return (
