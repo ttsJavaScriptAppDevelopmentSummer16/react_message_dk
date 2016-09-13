@@ -30,19 +30,27 @@ class MessageInput extends React.Component {
     ]}
   }
 
+  _handleClick(event) {
+    let newUser = {text: "Bacon ipsum", time: "5:00 pm", user: "Lilly"}
+    let newMessages = this.state.messages.push(newUser);
+    this.setState({newMessages});
+    console.log("clicked!", newUser)
+
+  }
+
+
   render() {
 
-    const messageMap = this.state.messages.map(function(user, i) {
-        return (<li key={i}>At {user.time}, {user.user} said "{user.text}"</li>)
+    let messageMap = this.state.messages.map(function(user, i) {
+      return (<li key={i}>At {user.time}, {user.user} said "{user.text}"</li>)
     })
 
     return (
       <div>
-
         <ul>{messageMap}</ul>
         // <p>Welcome to Dustin and Kevins page</p>
-        // <label>Enter text here<input type="text" /></label>
-        // <input type="submit" value="Submit" />
+        <label>Enter text here<input type="text" /></label>
+        <button onClick={this._handleClick.bind(this)}>Click me!</button>
       </div>
     )
   }
